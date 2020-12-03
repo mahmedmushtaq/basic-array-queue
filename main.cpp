@@ -3,7 +3,7 @@ using namespace std;
 
 
 
-#define MAX_SIZE 2
+#define MAX_SIZE 100
 
 class Queue{
   int front,rear;
@@ -61,6 +61,20 @@ class Queue{
     if(front == -1) return;
     cout << items[front] << endl;
   }
+  
+  void Print()
+	{
+		// Finding number of elements in queue  
+    // divided by max to tackle last when rear=front=0
+		int count = (rear+MAX_SIZE-front)%MAX_SIZE + 1;
+		cout<<"Queue       : ";
+		for(int i = 0; i <count; i++)
+		{
+			int index = (front+i) % MAX_SIZE; // Index of element while travesing circularly from front
+			cout<<items[index]<<" ";
+		}
+		cout<<"\n\n";
+	}
 
  
 };
